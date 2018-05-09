@@ -7,7 +7,6 @@ var {User} = require('./models/user');
 
 var app = express();
 
-
 app.use(bodyParser.json()); //server now recieves json
 
 app.post('/todos', (req, res)=>{
@@ -17,13 +16,19 @@ app.post('/todos', (req, res)=>{
 
     todo.save().then((doc)=>{
         res.send(doc);
-        console.log(doc);
-    }, (err)=>{
-        res.status(400).send(err);
-    })
-})
+    }, (e)=>{
+        res.status(400).send(e);
+    });
+});
 
-//GET /todos/123124dsaf
+app.get('/todos', (req, res) =>{
+    Todo.find().then((todos)=>{
+        res.send({todos});
+    }, (e)=>{
+        res.status(400).send(e);
+    });
+});
+
 
 
 app.listen(3000, ()=>{
