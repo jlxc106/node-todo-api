@@ -23,7 +23,6 @@ app.post('/todos', (req, res)=>{
     });
 });
 
-//GET /todos/12345678
 app.get('/todos/:_id',(req, res)=>{
     var _id = req.params._id;
 
@@ -40,7 +39,6 @@ app.get('/todos/:_id',(req, res)=>{
     }
 })
 
-
 app.get('/todos', (req, res) =>{
     Todo.find().then((todos)=>{
         res.send({todos});
@@ -48,8 +46,6 @@ app.get('/todos', (req, res) =>{
         res.status(400).send(e);
     });
 });
-
-
 
 app.listen(3000, ()=>{
     console.log('Started on port 3000');
