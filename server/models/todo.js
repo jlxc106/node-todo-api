@@ -15,29 +15,11 @@ var Todo = mongoose.model("Todo", {
     completedAt:{
         type: Number,
         default: null
+    },
+    _creator:{
+        required: true,
+        type: mongoose.Schema.Types.ObjectId
     }
 });
-
-
-// var otherTodo = new Todo({
-    //     text: '       Edit this video        '
-    // })
     
-    // otherTodo.save().then((doc)=>{
-    //     console.log(doc)
-    // }, (e)=>{
-    //     console.log('Unable to save otherTodo', e)
-    // });
-    
-    
-    // var newTodo = new Todo({
-    //     text: 'Cook dinner'
-    // });
-    
-    // newTodo.save().then((doc)=>{
-    //     console.log('Saved todo', doc);
-    // },(e)=>{
-    //     console.log('Unable to save todo');
-    // });
-    
-    module.exports = {Todo};
+module.exports = {Todo};
